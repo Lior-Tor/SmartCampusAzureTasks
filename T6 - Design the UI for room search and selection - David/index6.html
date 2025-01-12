@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Room Search</title>
+    <link rel="stylesheet" href="styles6.css">
+    <script defer src="script6.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏫 Room Search & Selection</h1>
+
+        <!-- Dark Mode Toggle -->
+        <button id="toggleTheme">🌙 Toggle Dark Mode</button>
+
+        <!-- Room Search Form -->
+        <form id="roomSearchForm">
+            <label for="date">📅 Select Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">⏰ Select Time:</label>
+            <input type="time" id="time" required>
+
+            <label for="capacity">👥 Minimum Capacity:</label>
+            <input type="number" id="capacity" min="1" placeholder="Enter capacity" required>
+
+            <label for="building">🏢 Building:</label>
+            <select id="building">
+                <option value="all">All Buildings</option>
+                <option value="A">Building Weiler</option>
+                <option value="B">Building Israel</option>
+                <option value="C">Building Beren</option>
+            </select>
+
+            <button type="submit">🔍 Search Rooms</button>
+        </form>
+
+        <!-- Available Rooms List -->
+        <div id="roomList">
+            <h2>🛋️ Available Rooms</h2>
+            <div id="rooms"></div>
+        </div>
+    </div>
+</body>
+</html>
