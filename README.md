@@ -3,6 +3,6 @@ This project was completed as part of a coursework in Software Engineering at Je
 Contributors:
 - Lior Tordjman
 - Elad Radomsky
-- Noam Mendelboim
+- Noam Mandelbaum
 - Amitay Zehoray
 - David Nahum
