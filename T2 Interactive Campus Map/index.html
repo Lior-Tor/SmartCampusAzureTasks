@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Campus Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Interactive Campus Map</h1>
+    </header>
+    <main>
+        <div id="map"></div>
+        <div id="instructions">
+            <p>Click on the map to select a location. Use the "Save Selected Point" button to save it.</p>
+        </div>
+        <button id="save-point">Save Selected Point</button>
+        <div id="building-list">
+            <h3>Building List</h3>
+            <input type="text" id="search-bar" placeholder="Search buildings..." />
+            <div id="list-container"></div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Campus Navigation System</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
