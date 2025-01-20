@@ -1,134 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Announcements Interface</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .form-section {
-            padding: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            display: inline-block;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 1rem;
-            color: #007BFF;
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 1rem;
-            color: green;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Announcements Interface</title>
+  <link rel="stylesheet" href="admin-announcements.css">
 </head>
 <body>
-    <header>
-        <h1>Admin Announcements</h1>
-    </header>
-    <div class="container">
-        <div class="form-section">
-            <form id="announcementForm">
-                <label for="title">Announcement Title</label>
-                <input type="text" id="title" name="title" placeholder="Enter the title" required>
-
-                <label for="message">Announcement Message</label>
-                <textarea id="message" name="message" placeholder="Enter the message" rows="6" required></textarea>
-
-                <button type="submit">Publish Announcement</button>
-            </form>
-
-            <div class="loading" id="loadingIndicator">Publishing...</div>
-            <div class="success-message" id="successMessage">Announcement published successfully!</div>
-        </div>
-    </div>
-    <script>
-        document.getElementById('announcementForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const title = document.getElementById('title').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!title || !message) {
-                alert('Both fields are required.');
-                return;
-            }
-
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const successMessage = document.getElementById('successMessage');
-
-            loadingIndicator.style.display = 'block';
-            successMessage.style.display = 'none';
-
-            // Simulate an API call
-            setTimeout(() => {
-                loadingIndicator.style.display = 'none';
-                successMessage.style.display = 'block';
-
-                // Save to local storage (simulated persistence)
-                const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
-                announcements.push({ title, message });
-                localStorage.setItem('announcements', JSON.stringify(announcements));
-
-                // Reset the form
-                document.getElementById('announcementForm').reset();
-            }, 2000);
-        });
-    </script>
+  <header>
+    <h1>Admin Announcements Interface</h1>
+  </header>
+  <main>
+    <form id="announcementForm">
+      <div class="form-group">
+        <label for="announcementTitle">Title</label>
+        <input type="text" id="announcementTitle" placeholder="Enter title" required>
+      </div>
+      <div class="form-group">
+        <label for="announcementBody">Message</label>
+        <textarea id="announcementBody" rows="5" placeholder="Enter your message" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Post Announcement</button>
+      </div>
+      <div id="loading" class="hidden">Posting announcement...</div>
+    </form>
+    <section id="announcements">
+      <h2>Posted Announcements</h2>
+      <ul id="announcementList"></ul>
+    </section>
+  </main>
+  <script src="admin-announcements.js"></script>
 </body>
 </html>
