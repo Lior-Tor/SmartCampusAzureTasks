@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Route Selection</title>
+  <link rel="stylesheet" href="accessible-route.css">
+</head>
+<body>
+  <header>
+    <h1>Accessible Route Selector</h1>
+  </header>
+  <main>
+    <form id="routeForm">
+      <div class="form-group">
+        <label for="startLocation">Start Location</label>
+        <input type="text" id="startLocation" placeholder="Enter starting point" required>
+      </div>
+      <div class="form-group">
+        <label for="endLocation">Destination</label>
+        <input type="text" id="endLocation" placeholder="Enter destination" required>
+      </div>
+      <div class="form-group">
+        <label for="accessibilityOptions">Accessibility Options</label>
+        <select id="accessibilityOptions">
+          <option value="wheelchair">Wheelchair Accessible</option>
+          <option value="no-stairs">Avoid Stairs</option>
+          <option value="shortest">Shortest Path</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit">Find Route</button>
+      </div>
+      <div id="loading" class="hidden">Finding route...</div>
+    </form>
+    <section id="routeResult">
+      <h2>Route Details</h2>
+      <div id="routeDetails"></div>
+    </section>
+  </main>
+  <script src="accessible-route.js"></script>
+</body>
+</html>
